@@ -22,6 +22,7 @@ class BlogFactory extends Factory
             'slug'  => $this->faker->slug(),
             'content' => $this->faker->paragraph(),
             'gambar' => $this->faker->imageUrl(),
+            'created_at' => now()
         ];
     }
 }
