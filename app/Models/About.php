@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class About extends Model
 {
-    /** @use HasFactory<\Database\Factories\BlogFactory> */
+    /** @use HasFactory<\Database\Factories\AboutFactory> */
     use HasFactory;
 
-    protected $table = 'tb_blog';
+    protected $table = 'tb_about';
 
     protected $fillable = [
         'title',
-        'slug',
-        'content',
+        'terbentuk',
+        'personil',
         'gambar',
+        'created_at',
+        'updated_at'
     ];
 }
