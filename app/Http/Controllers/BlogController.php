@@ -13,4 +13,12 @@ class BlogController extends Controller
             'blogs' => Blog::all()
         ]);
     }
+
+    public function detail(blog $blog)
+    {
+        return view('Blogdetail',[
+            'title' => $blog->title,
+            'detail'  => $blog
+        ]);
+    }
 }

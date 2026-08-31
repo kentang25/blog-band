@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
 
 
 Route::get('/', function () {
@@ -19,6 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/home', [BlogController::class, 'index']);
 Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/{blog:slug}', [BlogController::class, 'detail'])->name('blog.Blogdetail');
+Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
 
 // require __DIR__.'/auth.php';
