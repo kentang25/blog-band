@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 
 
 Route::get('/', function () {
@@ -21,7 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/home', [BlogController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
+// Route::get('/home', [BlogController::class, 'index']);
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/{blog:slug}', [BlogController::class, 'detail'])->name('blog.Blogdetail');
 Route::get('/contact', [ContactController::class, 'index']);
