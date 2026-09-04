@@ -18,4 +18,6 @@ class Blog extends Model
         'content',
         'gambar',
     ];
+
+    // public function 
 }

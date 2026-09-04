@@ -15,7 +15,7 @@ class HomeController extends Controller
 
         return view('Home', [
             'home' => Blog::latest()->take(3)->get(),
-            'katalog' => Katalog::latest()->take(3)->get()
+            'katalog' => Katalog::latest()->take(4)->get()
         ]);
     }
 }
