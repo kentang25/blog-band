@@ -42,7 +42,13 @@
                               {{ request()->is('contact') ? 'bg-white text-black' : '' }}">
                         Contact
                     </a>
-
+                    <a href="/about"
+                       class="rounded-sm px-4 py-2 text-sm font-semibold uppercase tracking-wider
+                              text-gray-400 transition duration-200
+                              hover:bg-white hover:text-black
+                              {{ request()->is('about') ? 'bg-white text-black' : '' }}">
+                        About
+                    </a>
                     <a href="/katalog"
                        class="rounded-sm px-4 py-2 text-sm font-semibold uppercase tracking-wider
                               text-gray-400 transition duration-200
