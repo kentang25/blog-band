@@ -17,7 +17,5 @@ class About extends Model
         'terbentuk',
         'personil',
         'gambar',
-        'created_at',
-        'updated_at'
     ];
 }
