@@ -11,7 +11,7 @@ class Blog extends Model
     use HasFactory;
 
     protected $table = 'tb_blog';
-
+    protected $primaryKey = 'id_blog';
     protected $fillable = [
         'title',
         'slug',

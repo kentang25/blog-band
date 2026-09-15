@@ -5,7 +5,7 @@
                     <!-- Left -->
                     <div>
                         <h2 class="text-xl sm:text-2xl font-bold text-white">
-                            Admin Dashboard
+                            Admin
                         </h2>
 
                         <p class="text-sm text-gray-500 mt-1">
