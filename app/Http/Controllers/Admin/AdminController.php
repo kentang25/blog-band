@@ -72,4 +72,12 @@ class AdminController extends Controller
         return redirect()->to('/dashboard')->with('success', 'Blog berhasil diperbarui');
     }
 
+    public function delete(Request $request, $id_blog)
+    {
+        $blog = Blog::findOrFail($id_blog);
+        $blog->delete();
+
+        return redirect()->to('/dashboard')->with('success', 'Blog berhasil dihapus');
+    }
+
 }

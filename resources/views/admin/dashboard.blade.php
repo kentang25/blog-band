@@ -56,7 +56,7 @@
 
                     <!-- {{ __("You're logged in!") }} -->
                     <!-- Add your dashboard content here -->
-                    
+
                     <div class="w-full mt-10">
                         {{-- Wrapper agar tabel bisa di-scroll di mobile --}}
                         <div class="overflow-x-auto rounded-lg border border-gray-300 shadow-sm">
@@ -119,16 +119,17 @@
                                             <div class="flex flex-wrap justify-center gap-2">
 
                                                 <a href="/admin/edit/{{ $blog->id_blog }}" class="inline-flex items-center justify-center rounded-md
-                                          bg-blue-600 px-3 py-2 text-xs font-semibold
-                                          text-white transition hover:bg-blue-700">
+                                                bg-blue-600 px-3 py-2 text-xs font-semibold
+                                                text-white transition hover:bg-blue-700">
                                                     Edit
                                                 </a>
 
-                                                <button type="button" class="inline-flex items-center justify-center rounded-md
-                                               bg-red-600 px-3 py-2 text-xs font-semibold
-                                               text-white transition hover:bg-red-700">
-                                                    Delete
-                                                </button>
+                                                <form action="/admin/delete/{{ $blog->id_blog }}" method="POST"
+                                                    onsubmit="return confirm('Yakin ingin menghapus data ini?')"> @csrf
+                                                    @method('DELETE') <button type="submit"
+                                                        class="inline-flex items-center justify-center rounded-md bg-red-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-red-700">
+                                                        Delete </button>
+                                                </form>
 
                                             </div>
                                         </td>

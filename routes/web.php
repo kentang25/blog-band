@@ -18,10 +18,11 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 // --- admin ----
-Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/admin/save', [AdminController::class, 'insert'])->middleware(['auth', 'verified'])->name('admin.insert');
 Route::get('/admin/edit/{id_blog}', [AdminController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
 Route::put('/admin/update/{id_blog}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
+Route::delete('/admin/delete/{id_blog}', [AdminController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
