@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 // admin
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,13 @@ Route::post('/admin/save', [AdminController::class, 'insert'])->middleware(['aut
 Route::get('/admin/edit/{id_blog}', [AdminController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
 Route::put('/admin/update/{id_blog}', [AdminController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
 Route::delete('/admin/delete/{id_blog}', [AdminController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
+
+// --- contact ---
+
+Route::get('/admin/contact', [AdminContactController::class, 'index'])->middleware(['auth', 'verified'])->name('contact.index');
+Route::post('/admin/contact/save', [AdminContactController::class, 'insert'])->middleware(['auth', 'verified'])->name('contact.insert');
+Route::get('/admin/contact/edit/{id_contact}', [AdminContactController::class, 'edit'])->middleware(['auth', 'verified'])->name('contact.edit');
+Route::put('/admin/contact/update/{id_contact}', [AdminContactController::class, 'update'])->middleware(['auth', 'verified'])->name('contact.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
