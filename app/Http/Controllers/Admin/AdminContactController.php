@@ -23,7 +23,7 @@ class AdminContactController extends Controller
         ]);
 
         Contact::create($validate);
-        return redirect()->to('/contact')->with('success', 'contact berhasil ditambahkan');
+        return redirect()->to('/admin/contact')->with('success', 'contact berhasil ditambahkan');
     }
 
     public function edit(Request $request, $id_contact)
@@ -43,6 +43,14 @@ class AdminContactController extends Controller
         $contact = Contact::findOrFail($id_contact);
         $contact->update($validate);
 
-        return redirect()->to('/contact')->with('success', 'contact berhasil diperbarui');
+        return redirect()->to('/admin/contact')->with('success', 'contact berhasil diperbarui');
+    }
+
+    public function delete(Request $request, $id_contact)
+    {
+        $contact = Contact::findOrFail($id_contact);
+        $contact->delete();
+
+        return redirect()->to('/admin/contact')->with('success', 'contact berhasil dihapus');
     }
 }

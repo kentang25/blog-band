@@ -11,7 +11,7 @@ class Contact extends Model
     use HasFactory;
 
     protected $table = 'tb_contact';
-
+    protected $primaryKey = 'id_contact';
     protected $fillable = [
         'email',
         'instagram',

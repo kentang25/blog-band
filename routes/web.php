@@ -31,6 +31,9 @@ Route::get('/admin/contact', [AdminContactController::class, 'index'])->middlewa
 Route::post('/admin/contact/save', [AdminContactController::class, 'insert'])->middleware(['auth', 'verified'])->name('contact.insert');
 Route::get('/admin/contact/edit/{id_contact}', [AdminContactController::class, 'edit'])->middleware(['auth', 'verified'])->name('contact.edit');
 Route::put('/admin/contact/update/{id_contact}', [AdminContactController::class, 'update'])->middleware(['auth', 'verified'])->name('contact.update');
+Route::delete('/admin/contact/delete/{id_contact}', [AdminContactController::class, 'delete'])->middleware(['auth', 'verified'])->name('contact.delete');
+
+// --- blog ---
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
