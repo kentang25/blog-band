@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 // admin
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminContactController;
+use App\Http\Controllers\Admin\AdminAboutController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,14 @@ Route::post('/admin/contact/save', [AdminContactController::class, 'insert'])->m
 Route::get('/admin/contact/edit/{id_contact}', [AdminContactController::class, 'edit'])->middleware(['auth', 'verified'])->name('contact.edit');
 Route::put('/admin/contact/update/{id_contact}', [AdminContactController::class, 'update'])->middleware(['auth', 'verified'])->name('contact.update');
 Route::delete('/admin/contact/delete/{id_contact}', [AdminContactController::class, 'delete'])->middleware(['auth', 'verified'])->name('contact.delete');
+
+// --- about ---
+
+Route::get('/admin/about', [AdminAboutController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.about');
+Route::post('/admin/about/save', [AdminAboutController::class, 'insert'])->middleware(['auth', 'verified'])->name('admin.insert');
+Route::get('/admin/about/edit/{id_about}', [AdminAboutController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
+Route::put('/admin/about/update/{id_about}', [AdminAboutController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
+Route::delete('/admin/about/delete/{id_about}', [AdminAboutController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 // --- blog ---
 

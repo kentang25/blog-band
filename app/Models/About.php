@@ -12,6 +12,8 @@ class About extends Model
 
     protected $table = 'tb_about';
 
+    protected $primaryKey = 'id_about';
+
     protected $fillable = [
         'title',
         'terbentuk',
