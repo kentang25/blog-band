@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminAboutController;
+use App\Http\Controllers\Admin\AdminBlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +44,11 @@ Route::put('/admin/about/update/{id_about}', [AdminAboutController::class, 'upda
 Route::delete('/admin/about/delete/{id_about}', [AdminAboutController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 // --- blog ---
+Route::get('/admin/blog', [AdminBlogController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
+Route::post('/admin/blog/save', [AdminBlogController::class, 'insert'])->middleware(['auth', 'verified'])->name('admin.insert');
+Route::get('/admin/blog/edit/{id_blog}', [AdminBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
+Route::put('/admin/blog/update/{id_blog}', [AdminBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
+Route::delete('/admin/blog/delete/{id_blog}', [AdminBlogController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
