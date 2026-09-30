@@ -12,6 +12,8 @@ class Katalog extends Model
 
     protected $table = 'tb_katalog';
 
+    protected $primaryKey = 'id_katalog';
+
     protected $fillable = [
         'title',
         'slug',

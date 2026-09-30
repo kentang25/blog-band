@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KatalogController;
 // admin
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminContactController;
@@ -61,5 +62,6 @@ Route::get('/blog/detail/{slug}', [BlogController::class,'detail'])->name('blog.
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog.index');
 
 require __DIR__.'/auth.php';
