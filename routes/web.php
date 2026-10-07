@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\AdminKatalogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,6 +51,14 @@ Route::post('/admin/blog/save', [AdminBlogController::class, 'insert'])->middlew
 Route::get('/admin/blog/edit/{id_blog}', [AdminBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
 Route::put('/admin/blog/update/{id_blog}', [AdminBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
 Route::delete('/admin/blog/delete/{id_blog}', [AdminBlogController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
+
+// --- katalog ---
+
+Route::get('/admin/katalog', [AdminkatalogController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
+Route::post('/admin/katalog/save', [AdminkatalogController::class, 'insert'])->middleware(['auth', 'verified'])->name('admin.insert');
+Route::get('/admin/katalog/edit/{id_katalog}', [AdminkatalogController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
+Route::put('/admin/katalog/update/{id_katalog}', [AdminkatalogController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
+Route::delete('/admin/katalog/delete/{id_katalog}', [AdminkatalogController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

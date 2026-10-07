@@ -21,15 +21,18 @@
                             </p>
                         </div>
 
-                        <a href="{{ route('about.index') }}"
-                            class="inline-flex items-center justify-center px-4 py-2
-                            bg-blue-600 border border-transparent rounded-md
-                            font-semibold text-xs text-white uppercase tracking-widest
-                            hover:bg-blue-500 focus:outline-none focus:border-blue-700
-                            focus:ring focus:ring-blue-200 active:bg-blue-600
-                            disabled:opacity-25 transition">
-                            Back to About List
-                        </a>
+                        <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+
+                            <!-- Button -->
+                            <button id="btn-open"
+                                class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl shadow-md transition duration-300">
+
+                                <i class="fa-solid fa-plus mr-2"></i>
+                                Tambah Data
+
+                            </button>
+
+                        </div>
                     </div>
 
                     {{-- TABLE --}}
@@ -73,80 +76,75 @@
 
                                     @forelse ($abouts as $about)
 
-                                        <tr class="hover:bg-gray-50 transition">
+                                    <tr class="hover:bg-gray-50 transition">
 
-                                            {{-- Title --}}
-                                            <td class="px-4 py-4 align-top">
-                                                <div class="font-medium text-gray-900 max-w-xs break-words">
-                                                    {{ $about->title }}
-                                                </div>
-                                            </td>
+                                        {{-- Title --}}
+                                        <td class="px-4 py-4 align-top">
+                                            <div class="font-medium text-gray-900 max-w-xs break-words">
+                                                {{ $about->title }}
+                                            </div>
+                                        </td>
 
-                                            {{-- Terbentuk --}}
-                                            <td class="px-4 py-4 align-top text-gray-600">
-                                                <div class="max-w-lg break-words leading-relaxed">
-                                                    {{ $about->terbentuk }}
-                                                </div>
-                                            </td>
+                                        {{-- Terbentuk --}}
+                                        <td class="px-4 py-4 align-top text-gray-600">
+                                            <div class="max-w-lg break-words leading-relaxed">
+                                                {{ $about->terbentuk }}
+                                            </div>
+                                        </td>
 
-                                            {{-- Personil --}}
-                                            <td class="px-4 py-4 align-top text-gray-600">
-                                                <div class="max-w-lg break-words leading-relaxed">
-                                                    {{ $about->personil }}
-                                                </div>
-                                            </td>
+                                        {{-- Personil --}}
+                                        <td class="px-4 py-4 align-top text-gray-600">
+                                            <div class="max-w-lg break-words leading-relaxed">
+                                                {{ $about->personil }}
+                                            </div>
+                                        </td>
 
-                                            {{-- Action --}}
-                                            <td class="px-4 py-4 align-top">
-                                                <div class="flex items-center justify-center gap-2">
+                                        {{-- Action --}}
+                                        <td class="px-4 py-4 align-top">
+                                            <div class="flex items-center justify-center gap-2">
 
-                                                    {{-- Edit --}}
-                                                    <a href="/admin/about/edit/{{ $about->id_about }}"
-                                                        class="inline-flex items-center justify-center
+                                                {{-- Edit --}}
+                                                <a href="/admin/about/edit/{{ $about->id_about }}" class="inline-flex items-center justify-center
                                                         rounded-md bg-blue-600 px-3 py-2
                                                         text-xs font-semibold text-white
                                                         whitespace-nowrap transition
                                                         hover:bg-blue-700
                                                         focus:outline-none focus:ring-2
                                                         focus:ring-blue-500 focus:ring-offset-1">
-                                                        Edit
-                                                    </a>
+                                                    Edit
+                                                </a>
 
-                                                    {{-- Delete --}}
-                                                    <form
-                                                        action="/admin/about/delete/{{ $about->id_about }}"
-                                                        method="POST"
-                                                        onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                                {{-- Delete --}}
+                                                <form action="/admin/about/delete/{{ $about->id_about }}" method="POST"
+                                                    onsubmit="return confirm('Yakin ingin menghapus data ini?')">
 
-                                                        @csrf
-                                                        @method('DELETE')
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                                        <button type="submit"
-                                                            class="inline-flex items-center justify-center
+                                                    <button type="submit" class="inline-flex items-center justify-center
                                                             rounded-md bg-red-600 px-3 py-2
                                                             text-xs font-semibold text-white
                                                             whitespace-nowrap transition
                                                             hover:bg-red-700
                                                             focus:outline-none focus:ring-2
                                                             focus:ring-red-500 focus:ring-offset-1">
-                                                            Delete
-                                                        </button>
+                                                        Delete
+                                                    </button>
 
-                                                    </form>
+                                                </form>
 
-                                                </div>
-                                            </td>
+                                            </div>
+                                        </td>
 
-                                        </tr>
+                                    </tr>
 
                                     @empty
 
-                                        <tr>
-                                            <td colspan="4"
-                                                class="px-4 py-10 text-center text-gray-500">
-                                                Belum ada data about.
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-10 text-center text-gray-500">
+                                            Belum ada data about.
+                                        </td>
+                                    </tr>
 
                                     @endforelse
 
@@ -165,7 +163,107 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-</x-app-layout>
 
+        </div>
+
+
+        <div id="modal"
+            class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-3 sm:p-4 overflow-y-auto">
+            <div class="bg-white w-full max-w-2xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[90vh]">
+                <!-- Header -->
+                <div class="bg-gray-900 text-white px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
+
+
+                    <div>
+
+                        <h2 class="text-xl sm:text-2xl font-bold">
+                            Tambah Collection
+                        </h2>
+
+                        <p class="text-sm text-gray-300 mt-1">
+                            Upload your newest band merchandise collection.
+                        </p>
+
+                    </div>
+                    <form method="POST" action="/admin/save" enctype="multipart/form-data" class="p-4 sm:p-8 space-y-6">
+                        @csrf
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+
+                            <!-- Nama Band -->
+                            <div>
+                                <label for="title" class="block text-sm text-gray-700 font-medium mb-1">Title</label>
+                                <input type="text" name="title" id="title" placeholder="Title" required
+                                    class="w-full border text-black border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                            <div>
+                                <label for="terbentuk"
+                                    class="block text-sm text-gray-700 font-medium mb-1">Terbentuk</label>
+                                <input type="text" name="terbentuk" id="terbentuk" placeholder="terbentuk" required
+                                    class="w-full border text-black border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                            <div>
+                                <label for="personil"
+                                    class="block text-sm text-gray-700 font-medium mb-1">Personil</label>
+                                <textarea name="personil" id="personil" rows="4" placeholder="personil" required
+                                    class="w-full border text-black border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </textarea>
+                            </div>
+
+                            <div>
+                                <label for="gambar" class="block text-sm text-gray-700 font-medium mb-1">Gambar</label>
+                                <input type="file" name="gambar" id="gambar" placeholder="Gambar" required
+                                    class="w-full border text-black border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-col sm:flex-row justify-end gap-4 pt-4">
+
+                            <!-- Cancel -->
+                            <button type="button" id="btn-close-2"
+                                class="w-full sm:w-auto px-6 py-3 text-black rounded-xl border border-gray-300 hover:bg-gray-100 transition">
+
+                                Cancel
+
+                            </button>
+
+                            <!-- Submit -->
+                            <button type="submit"
+                                class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg transition">
+
+                                <i class="fa-solid fa-floppy-disk mr-2"></i>
+                                Submit Collection
+
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <script>
+            const modal = document.getElementById('modal');
+            const btnOpen = document.getElementById('btn-open');
+            const btnClose = document.getElementById('btn-close');
+            const btnClose2 = document.getElementById('btn-close-2');
+
+            btnOpen.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+
+            btnClose.addEventListener('click', () => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            });
+
+            btnClose2.addEventListener('click', () => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            });
+            </script>
+</x-app-layout>

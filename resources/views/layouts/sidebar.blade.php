@@ -66,7 +66,7 @@
                 </li>
 
                 <li>
-                    <a href="/admin/contact"
+                    <a href="/admin/blog"
                         class="flex items-center gap-4 text-gray-400 hover:bg-gray-900 hover:text-white px-4 py-3 rounded-2xl transition duration-300 no-underline">
 
                         <i class="fa-solid fa-book"></i>
@@ -77,7 +77,7 @@
                 </li>
 
                 <li>
-                    <a href="/admin/contact"
+                    <a href="/admin/katalog"
                         class="flex items-center gap-4 text-gray-400 hover:bg-gray-900 hover:text-white px-4 py-3 rounded-2xl transition duration-300 no-underline">
 
                         <i class="fa-solid fa-shirt text-lg"></i>
@@ -200,7 +200,7 @@
                     </h3>
 
                     <p class="text-xs text-gray-500">
-                        Black Metal / Punk / Hardcore
+                        Black Metal / Punk 
                     </p>
 
                 </div>
