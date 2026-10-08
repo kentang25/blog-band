@@ -107,13 +107,13 @@
                                         <td class="px-4 py-4 align-top">
                                             <div class="flex flex-wrap justify-center gap-2">
 
-                                                <a href="/admin/edit/{{ $blog->id_blog }}" class="inline-flex items-center justify-center rounded-md
+                                                <a href="/admin/blog/edit/{{ $blog->id_blog }}" class="inline-flex items-center justify-center rounded-md
                                                 bg-blue-600 px-3 py-2 text-xs font-semibold
                                                 text-white transition hover:bg-blue-700">
                                                     Edit
                                                 </a>
 
-                                                <form action="/admin/delete/{{ $blog->id_blog }}" method="POST"
+                                                <form action="/admin/blog/delete/{{ $blog->id_blog }}" method="POST"
                                                     onsubmit="return confirm('Yakin ingin menghapus data ini?')"> @csrf
                                                     @method('DELETE') <button type="submit"
                                                         class="inline-flex items-center justify-center rounded-md bg-red-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-red-700">
@@ -173,7 +173,7 @@
             </div>
 
             <!-- Form -->
-            <form method="POST" action="/admin/save" enctype="multipart/form-data" class="p-4 sm:p-8 space-y-6">
+            <form method="POST" action="/admin/blog/save" enctype="multipart/form-data" class="p-4 sm:p-8 space-y-6">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 

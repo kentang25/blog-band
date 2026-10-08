@@ -46,11 +46,11 @@ Route::put('/admin/about/update/{id_about}', [AdminAboutController::class, 'upda
 Route::delete('/admin/about/delete/{id_about}', [AdminAboutController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
 
 // --- blog ---
-Route::get('/admin/blog', [AdminBlogController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.index');
-Route::post('/admin/blog/save', [AdminBlogController::class, 'insert'])->middleware(['auth', 'verified'])->name('admin.insert');
-Route::get('/admin/blog/edit/{id_blog}', [AdminBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('admin.edit');
-Route::put('/admin/blog/update/{id_blog}', [AdminBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('admin.update');
-Route::delete('/admin/blog/delete/{id_blog}', [AdminBlogController::class, 'delete'])->middleware(['auth', 'verified'])->name('admin.delete');
+Route::get('/admin/blog', [AdminBlogController::class, 'index'])->middleware(['auth', 'verified'])->name('blog.index');
+Route::post('/admin/blog/save', [AdminBlogController::class, 'insert'])->middleware(['auth', 'verified'])->name('blog.insert');
+Route::get('/admin/blog/edit/{id_blog}', [AdminBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
+Route::put('/admin/blog/update/{id_blog}', [AdminBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('blog.update');
+Route::delete('/admin/blog/delete/{id_blog}', [AdminBlogController::class, 'delete'])->middleware(['auth', 'verified'])->name('blog.delete');
 
 // --- katalog ---
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
+
 class AdminBlogController extends Controller
 {
     public function index()
@@ -16,11 +17,11 @@ class AdminBlogController extends Controller
         return view('admin.blog', compact('blogs'));
     }
 
-    public function insert(Request $request)
+    public function insert(Request $request, Blog $blog)
     {
-        $validate = $request->validation([
+        $validate = $request->validate([
             'title' => 'string|required',
-            'slug' => 'string|required|unique:tb_blog.slug',
+            'slug' => 'string|required|unique:tb_blog,slug',
             'content' => 'string|required',
             'gambar' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048'
         ]);
@@ -29,7 +30,7 @@ class AdminBlogController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
+            $blog->thumbnail = $imageName;
         }else{
             $request->merge(['gambar' => null]);
         }
@@ -44,7 +45,7 @@ class AdminBlogController extends Controller
         return view('admin.editBlog', compact('blog'));
     }
 
-    public function update(Request $request, $id_blog)
+    public function update(Request $request,Blog $blog, $id_blog)
     {
         $validate = $request->validate([
             'title' => 'string|required',
@@ -62,7 +63,7 @@ class AdminBlogController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtention();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
+            $blog->thumbnail = $imageName;
         }else{
             $request->merge(['gambar' => null]);
         }

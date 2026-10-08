@@ -37,7 +37,7 @@
 
                         @if ($blog->thumbnail)
                             <img
-                                src="{{ asset('storage/' . $blog->thumbnail) }}"
+                                src="{{ asset('gambar/' . $blog->thumbnail) }}"
                                 alt="{{ $blog->title }}"
                                 class="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0">
                         @else
