@@ -28,11 +28,9 @@ class AdminBlogController extends Controller
 
         if($request->hasFile('gambar')){
             $image = $request->file('gambar');
-            $imageName = time(). '.' . $image->getClientOriginalExtension();
+            $imageName = time(). '.' . $image->Extension();
             $image->move(public_path('gambar'), $imageName);
-            $blog->thumbnail = $imageName;
-        }else{
-            $request->merge(['gambar' => null]);
+            $blog->gambar = $imageName;
         }
 
         Blog::create($validate);

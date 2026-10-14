@@ -35,9 +35,9 @@
                     {{-- Image / Thumbnail --}}
                     <div class="relative aspect-video overflow-hidden bg-zinc-900">
 
-                        @if ($blog->thumbnail)
+                        @if ($blog->gambar)
                             <img
-                                src="{{ asset('gambar/' . $blog->thumbnail) }}"
+                                src="{{ asset('gambar/' . $blog->gambar) }}"
                                 alt="{{ $blog->title }}"
                                 class="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0">
                         @else
