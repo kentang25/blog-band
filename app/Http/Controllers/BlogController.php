@@ -14,11 +14,13 @@ class BlogController extends Controller
         ]);
     }
 
-    public function detail(blog $blog)
+    public function detail(Blog $blog)
     {
         return view('Blogdetail',[
             'title' => $blog->title,
-            'detail'  => $blog
+            'detail'  => $blog,
         ]);
+
+        
     }
 }

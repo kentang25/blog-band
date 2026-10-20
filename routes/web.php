@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/detail/{slug}', [BlogController::class,'detail'])->name('blog.Blogdetail');
+Route::get('/blog/detail/{blog:slug}', [BlogController::class,'detail'])->name('blog.Blogdetail');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');

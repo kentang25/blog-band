@@ -17,7 +17,7 @@ class AdminBlogController extends Controller
         return view('admin.blog', compact('blogs'));
     }
 
-    public function insert(Request $request, Blog $blog)
+    public function insert(Request $request)
     {
         $validate = $request->validate([
             'title' => 'string|required',
@@ -30,7 +30,7 @@ class AdminBlogController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->Extension();
             $image->move(public_path('gambar'), $imageName);
-            $blog->gambar = $imageName;
+            $validate['gambar'] = $imageName;
         }
 
         Blog::create($validate);
