@@ -29,7 +29,7 @@
                     {{-- Image --}}
                     <div class="relative aspect-[4/5] overflow-hidden bg-gray-950">
 
-                        <img src="{{ asset('img_upload/' . $ktg['gambar']) }}" alt="{{ $ktg['title'] }}"
+                        <img src="{{ asset('gambar/' . $ktg['gambar']) }}" alt="{{ $ktg['title'] }}"
                             class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">

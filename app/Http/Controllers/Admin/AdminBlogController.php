@@ -59,11 +59,9 @@ class AdminBlogController extends Controller
         if($request->hasFile('gambar')){
             Storage::disk('public')->delete($request->gambar);
             $image = $request->file('gambar');
-            $imageName = time(). '.' . $image->getClientOriginalExtention();
+            $imageName = time(). '.' . $image->Extension();
             $image->move(public_path('gambar'), $imageName);
-            $blog->thumbnail = $imageName;
-        }else{
-            $request->merge(['gambar' => null]);
+            $validate['gambar'] = $imageName;
         }
 
         $blog = Blog::findOrFail($validate);

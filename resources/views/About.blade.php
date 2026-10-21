@@ -39,6 +39,10 @@
                     </span>
 
                     <h2 class="mt-3 font-serif text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
+                        Terbentuk
+                    </h2>
+
+                    <h2 class="mt-3 font-serif text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
                         {{ $abt->title2 }}
                     </h2>
                 </div>

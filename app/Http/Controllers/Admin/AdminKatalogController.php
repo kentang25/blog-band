@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Katalog;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class AdminKatalogController extends Controller
 {
@@ -15,14 +16,14 @@ class AdminKatalogController extends Controller
         return view('admin.katalog', compact('katalog'));
     }
 
-    public function insert(Request $request, $id_katalog)
+    public function insert(Request $request)
     {
         $validate = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => [
                 'required',
                 'string',
-                Rule::unique('tb_katalog', 'slug')->ignore($id_katalog),
+                // Rule::unique('tb_katalog', 'slug')->ignore($id_katalog),
             ],
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'size' => 'required|string|max:255',
@@ -32,9 +33,7 @@ class AdminKatalogController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
-        }else{
-            $request->merge(['gambar' => null]);
+            $validate['gambar'] = $imageName;
         }
 
         Katalog::create($validate);
@@ -65,9 +64,7 @@ class AdminKatalogController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
-        }else{
-            $request->merge(['gambar' => null]);
+            $validate['gambar'] = $imageName;
         }
 
         $katalog = Katalog::findOrFail($id_katalog);

@@ -173,7 +173,7 @@
             </div>
 
             <!-- Form -->
-            <form method="POST" action="/katalog/save" enctype="multipart/form-data" class="p-4 sm:p-8 space-y-6">
+            <form method="POST" action="/admin/katalog/save" enctype="multipart/form-data" class="p-4 sm:p-8 space-y-6">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
