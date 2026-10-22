@@ -25,7 +25,7 @@ class AdminKatalogController extends Controller
                 'string',
                 // Rule::unique('tb_katalog', 'slug')->ignore($id_katalog),
             ],
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'size' => 'required|string|max:255',
         ]);
 
@@ -55,7 +55,7 @@ class AdminKatalogController extends Controller
                 'string',
                 Rule::unique('tb_katalog', 'slug')->ignore($id_katalog, 'id_katalog'),
             ],
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'size' => 'required|string|max:255',
         ]);
 

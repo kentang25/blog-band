@@ -39,7 +39,7 @@
                     </span>
 
                     <h2 class="mt-3 font-serif text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
-                        Terbentuk
+                        formed
                     </h2>
 
                     <h2 class="mt-3 font-serif text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
@@ -65,7 +65,7 @@
                     </span>
 
                     <h2 class="mt-3 font-serif text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
-                        Personnel
+                        personnel
                     </h2>
                 </div>
 

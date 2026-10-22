@@ -14,8 +14,8 @@
                     {{-- Image / Thumbnail --}}
                     <div class="relative aspect-video overflow-hidden bg-zinc-900">
 
-                        @if ($hm->thumbnail)
-                        <img src="{{ asset('storage/' . $hm->thumbnail) }}" alt="{{ $hm->title }}"
+                        @if ($hm->gambar)
+                        <img src="{{ asset('gambar/' . $hm->gambar) }}" alt="{{ $hm->title }}"
                             class="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0">
                         @else
                         <div class="flex h-full items-center justify-center">
@@ -128,7 +128,7 @@
                     <div class="relative aspect-[4/5] overflow-hidden bg-gray-950">
 
                         <img
-                            src="{{ asset('img_upload/' . $ktg['gambar']) }}"
+                            src="{{ asset('gambar/' . $ktg['gambar']) }}"
                             alt="{{ $ktg['title'] }}"
                             class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                         >

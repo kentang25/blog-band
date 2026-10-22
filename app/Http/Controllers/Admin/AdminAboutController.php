@@ -22,7 +22,7 @@ class AdminAboutController extends Controller
             'title' => 'string|required',
             'terbentuk' => 'string|required',
             'personil' => 'string|required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         if($request->hasFile('gambar')){
@@ -51,7 +51,7 @@ class AdminAboutController extends Controller
             'title' => 'string|required',
             'terbentuk' => 'string|required',
             'personil' => 'string|required',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         if($request->hasFile('gambar')){

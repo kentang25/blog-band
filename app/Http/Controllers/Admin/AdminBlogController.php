@@ -23,7 +23,7 @@ class AdminBlogController extends Controller
             'title' => 'string|required',
             'slug' => 'string|required|unique:tb_blog,slug',
             'content' => 'string|required',
-            'gambar' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048'
+            'gambar' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:2048'
         ]);
 
         if($request->hasFile('gambar')){
@@ -53,7 +53,7 @@ class AdminBlogController extends Controller
                 Rule::unique('tb_blog', 'slug')->ignore($id_blog, 'id_blog')
             ],
             'content' => 'string|required',
-            'gambar' => 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:2048'
         ]);
 
         if($request->hasFile('gambar')){
