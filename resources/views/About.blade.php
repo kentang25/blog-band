@@ -57,7 +57,7 @@
 
 
             {{-- ================= PERSONNEL ================= --}}
-            <div class="grid gap-12 py-20 lg:grid-cols-3">
+            <!-- <div class="grid gap-12 py-20 lg:grid-cols-3">
 
                 <div>
                     <span class="text-sm font-bold text-red-900">
@@ -77,7 +77,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
             {{-- ================= FOOTER QUOTE ================= --}}
