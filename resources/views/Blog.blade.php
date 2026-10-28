@@ -115,13 +115,13 @@
                     </div>
 
                 </article>
-
+            
             @endforeach
-
         </div>
-
+        
+        {{ $blogs->Links() }}
     </div>
-
+    
 </section>
 
 
