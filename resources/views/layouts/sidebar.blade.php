@@ -18,7 +18,7 @@
             <div>
 
                 <h1 class="text-xl font-black tracking-[4px] text-white">
-                    HIGGLE
+                    GESCHLOCS
                 </h1>
 
                 <p class="text-xs uppercase tracking-[3px] text-gray-500">
@@ -146,7 +146,7 @@
                                     Batal
                                 </button>
 
-                                <a href="/admin/logout"
+                                <a href="/logout"
                                     class="px-5 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition">
                                     Ya, Keluar
                                 </a>

@@ -29,9 +29,7 @@ class AdminAboutController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
-        }else{
-            $request->merge(['gambar' => null]);
+            $validate['gambar'] = $imageName;
         }
 
         About::create($validate);
@@ -59,7 +57,7 @@ class AdminAboutController extends Controller
             $image = $request->file('gambar');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
             $image->move(public_path('gambar'), $imageName);
-            $request->merge(['gambar' => $imageName]);
+            $validate['gambar'] = $imageName;
         }
 
         $about = About::findOrFail($id_about);
