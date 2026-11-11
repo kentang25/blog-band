@@ -140,8 +140,15 @@
                             </p>
 
                             <div class="flex justify-end gap-3">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
 
-                                <button id="cancelBtn"
+                                    <button type="submit"
+                                        class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
+                                        Logout
+                                    </button>
+                                </form>
+                                <!-- <button id="cancelBtn"
                                     class="px-5 py-2 rounded-xl bg-zinc-800 text-gray-300 hover:bg-zinc-700 transition">
                                     Batal
                                 </button>
@@ -149,7 +156,7 @@
                                 <a href="/logout"
                                     class="px-5 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition">
                                     Ya, Keluar
-                                </a>
+                                </a> -->
 
                             </div>
 
@@ -200,7 +207,7 @@
                     </h3>
 
                     <p class="text-xs text-gray-500">
-                        Black Metal / Punk 
+                        Black Metal / Punk
                     </p>
 
                 </div>
